@@ -1,8 +1,7 @@
-﻿using System.Net;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 using TestcontainersDemo.Infrastructure.Postgres;
-using TestcontainersDemo.Infrastructure.Postgres.Models;
 using TestcontainersDemo.WebApi.Models.Request;
 using TestcontainersDemo.WebApi.Models.Response;
 
@@ -23,12 +22,14 @@ public sealed class PersonController : ControllerBase {
     /// <param name="pageSize">The amount of persons to retrieve.</param>
     /// <returns></returns>
     [HttpGet]
-    [ProducesResponseType(typeof(IList<Person>), (int) HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(IList<CreatePersonResponse>), (int) HttpStatusCode.OK)]
     [ProducesResponseType((int) HttpStatusCode.NoContent)]
     public async Task<IActionResult> Get(int pageNumber = 1, byte pageSize = 10) {
         var records = await _personContext.Persons
             .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize).ToListAsync();
+            .Take(pageSize)
+            .Select(person => new CreatePersonResponse(person))
+            .ToListAsync();
 
         if (records.Count == 0) {
             return NoContent();
