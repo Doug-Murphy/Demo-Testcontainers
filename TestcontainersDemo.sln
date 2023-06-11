@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersDemo.WebApi",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersDemo.Infrastructure.Postgres", "TestcontainersDemo.Infrastructure.Postgres\TestcontainersDemo.Infrastructure.Postgres.csproj", "{F515572E-B389-45C2-9718-C8DEEAC843AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersDemo.Tests.Integration", "TestcontainersDemo.Tests.Integration\TestcontainersDemo.Tests.Integration.csproj", "{E9DB8EDC-2647-42C1-94F3-B00B14BAED1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DB8EDC-2647-42C1-94F3-B00B14BAED1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DB8EDC-2647-42C1-94F3-B00B14BAED1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DB8EDC-2647-42C1-94F3-B00B14BAED1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DB8EDC-2647-42C1-94F3-B00B14BAED1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
