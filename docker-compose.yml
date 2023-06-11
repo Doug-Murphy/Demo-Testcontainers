@@ -7,3 +7,11 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - 5432:5432
+  
+  api:
+    build:
+      context: .
+      dockerfile: TestcontainersDemo.WebApi/Dockerfile
+    ports:
+      - 5167:80
+      - 7137:443
