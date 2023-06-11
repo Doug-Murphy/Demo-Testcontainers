@@ -24,3 +24,20 @@ An ASP.NET Core WebApi running in .NET 7. This web API will contain a few endpoi
 
 ## TestcontainersDemo.Tests.Integration
 This project will house our integration tests to our containerized resources using the `Testcontainers` NuGet package.
+
+# Running The Project
+
+## Docker Compose
+A Docker Compose file is included in this repo and should make things very easy to get up and running.
+First make sure that you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed, or install Docker and Docker Compose however you'd like.
+
+After Docker and Docker Compose are installed, ensure they are working correctly be executing the following commands:
+
+For Docker: `docker --version`
+
+For Docker Compose: `docker compose version`
+
+After you have verified that Docker and Docker Compose have been installed correctly, type `docker compose up -d` to start the required services.
+
+## Database Setup
+There is nothing that you need to do for your database setup. This project uses EF Core Migrations so your required DB objects will be created for you, if needed, when the API starts.
