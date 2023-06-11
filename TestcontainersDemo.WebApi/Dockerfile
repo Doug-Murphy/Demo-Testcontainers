@@ -6,6 +6,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["TestcontainersDemo.WebApi/TestcontainersDemo.WebApi.csproj", "TestcontainersDemo.WebApi/"]
+COPY ["TestcontainersDemo.Infrastructure.Postgres/TestcontainersDemo.Infrastructure.Postgres.csproj", "TestcontainersDemo.Infrastructure.Postgres/"]
 RUN dotnet restore "TestcontainersDemo.WebApi/TestcontainersDemo.WebApi.csproj"
 COPY . .
 WORKDIR "/src/TestcontainersDemo.WebApi"

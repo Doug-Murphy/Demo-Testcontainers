@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersDemo.WebApi", "TestcontainersDemo.WebApi\TestcontainersDemo.WebApi.csproj", "{2CA57534-DD64-4990-8D61-587BE4EE00E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestcontainersDemo.Infrastructure.Postgres", "TestcontainersDemo.Infrastructure.Postgres\TestcontainersDemo.Infrastructure.Postgres.csproj", "{F515572E-B389-45C2-9718-C8DEEAC843AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{2CA57534-DD64-4990-8D61-587BE4EE00E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CA57534-DD64-4990-8D61-587BE4EE00E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CA57534-DD64-4990-8D61-587BE4EE00E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F515572E-B389-45C2-9718-C8DEEAC843AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
