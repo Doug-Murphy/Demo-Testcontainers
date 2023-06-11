@@ -18,4 +18,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TestcontainersDemo.Infrastructure.Postgres\TestcontainersDemo.Infrastructure.Postgres.csproj" />
+    </ItemGroup>
+
 </Project>
