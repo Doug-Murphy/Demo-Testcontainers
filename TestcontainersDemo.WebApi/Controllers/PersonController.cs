@@ -9,10 +9,10 @@ namespace TestcontainersDemo.WebApi.Controllers;
 
 [Route("[controller]")]
 public sealed class PersonController : ControllerBase {
-    private readonly PersonContext _personContext;
+    private readonly PersonsRepository _personsRepository;
 
-    public PersonController(PersonContext personContext) {
-        _personContext = personContext;
+    public PersonController(PersonsRepository personsRepository) {
+        _personsRepository = personsRepository;
     }
 
     /// <summary>
@@ -25,9 +25,8 @@ public sealed class PersonController : ControllerBase {
     [ProducesResponseType(typeof(IList<CreatePersonResponse>), (int) HttpStatusCode.OK)]
     [ProducesResponseType((int) HttpStatusCode.NoContent)]
     public async Task<IActionResult> Get(int pageNumber = 1, byte pageSize = 10) {
-        var records = await _personContext.Persons
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
+        var records = await _personsRepository.GetAllPersons(pageNumber, pageSize)
+            .AsNoTracking()
             .Select(person => new CreatePersonResponse(person))
             .ToListAsync();
 
@@ -47,7 +46,7 @@ public sealed class PersonController : ControllerBase {
     [ProducesResponseType(typeof(CreatePersonResponse), (int) HttpStatusCode.OK)]
     [ProducesResponseType((int) HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetById(Guid id) {
-        var record = await _personContext.Persons.FirstOrDefaultAsync(person => person.Id == id);
+        var record = await _personsRepository.GetPersonByIdAsync(id);
 
         if (record is null) {
             return NotFound();
@@ -65,11 +64,8 @@ public sealed class PersonController : ControllerBase {
     [ProducesResponseType(typeof(CreatePersonResponse), (int) HttpStatusCode.Created)]
     [ProducesResponseType(typeof(ProblemDetails), (int) HttpStatusCode.BadRequest)]
     public async Task<IActionResult> Create([FromBody] CreatePersonRequest request) {
-        var personRecordForDatabase = request.ToDatabasePerson();
+        var savedPerson = await _personsRepository.CreatePersonAsync(request.ToDatabasePerson());
 
-        _personContext.Persons.Add(personRecordForDatabase);
-        await _personContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetById), new {id = personRecordForDatabase.Id}, new CreatePersonResponse(personRecordForDatabase));
+        return CreatedAtAction(nameof(GetById), new {id = savedPerson.Id}, new CreatePersonResponse(savedPerson));
     }
 }
