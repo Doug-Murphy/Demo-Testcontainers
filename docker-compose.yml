@@ -9,6 +9,8 @@ services:
       - 5432:5432
   
   api:
+    depends_on:
+      - db
     build:
       context: .
       dockerfile: TestcontainersDemo.WebApi/Dockerfile
