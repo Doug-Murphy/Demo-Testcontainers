@@ -12,9 +12,13 @@ public sealed record CreatePersonResponse {
         LastName = dbPerson.LastName;
     }
 
-    public Guid Id { get; private init; }
+    public CreatePersonResponse() {
+        
+    }
 
-    public string FirstName { get; private init; }
+    public Guid Id { get; init; }
 
-    public string LastName { get; private init; }
+    public string FirstName { get; init; }
+
+    public string LastName { get; init; }
 }

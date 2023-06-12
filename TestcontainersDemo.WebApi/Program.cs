@@ -36,3 +36,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+//assembly marker for WebApplicationFactory to do its magic!
+public partial class Program {
+}
