@@ -14,6 +14,8 @@ services:
     build:
       context: .
       dockerfile: TestcontainersDemo.WebApi/Dockerfile
+    environment:
+      ConnectionStrings__Postgres: "Host=postgres:5432;Username=postgres;Password=password;Database=postgres"
     ports:
       - 5167:80
       - 7137:443
