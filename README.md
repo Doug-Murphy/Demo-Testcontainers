@@ -22,6 +22,9 @@ It will be running a real, containerized instance of your dependent resource.
 ## TestcontainersDemo.WebApi
 An ASP.NET Core WebApi running in .NET 7. This web API will contain a few endpoints to do a simple data access to be our system under test (SUT).
 
+## TestcontainersDemo.Infrastructure.Postgres
+This project houses the DB interaction with our Postgres database. It contains the migrations for EF Core, DB model, repository, and EF Core DB context.
+
 ## TestcontainersDemo.Tests.Integration
 This project will house our integration tests to our containerized resources using the `Testcontainers` NuGet package.
 
