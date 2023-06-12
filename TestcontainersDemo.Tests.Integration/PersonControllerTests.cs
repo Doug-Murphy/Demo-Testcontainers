@@ -1,12 +1,13 @@
 ﻿using Bogus;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
+using TestcontainersDemo.Tests.Integration.Fixtures;
 using TestcontainersDemo.WebApi.Models.Request;
 using TestcontainersDemo.WebApi.Models.Response;
 
 namespace TestcontainersDemo.Tests.Integration;
 
-public sealed class PersonControllerTests : IClassFixture<TestcontainersDemoApiFactory> {
+public sealed class PersonControllerTests : IClassFixture<TestcontainersDemoApiFactory>, IClassFixture<PostgresFixture> {
     private readonly WebApplicationFactory<Program> _webApplicationFactory;
 
     public PersonControllerTests(TestcontainersDemoApiFactory webApplicationFactory) {
