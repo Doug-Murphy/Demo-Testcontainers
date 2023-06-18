@@ -34,7 +34,7 @@ This project will house our integration tests to our containerized resources usi
 A Docker Compose file is included in this repo and should make things very easy to get up and running.
 First make sure that you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed, or install Docker and Docker Compose however you'd like.
 
-After Docker and Docker Compose are installed, ensure they are working correctly be executing the following commands:
+After Docker and Docker Compose are installed, ensure they are working correctly by executing the following commands:
 
 For Docker: `docker --version`
 
@@ -42,5 +42,12 @@ For Docker Compose: `docker compose version`
 
 After you have verified that Docker and Docker Compose have been installed correctly, type `docker compose up -d` to start the required services.
 
+The API should be accessible at http://localhost:5167
+
 ## Database Setup
 There is nothing that you need to do for your database setup. This project uses EF Core Migrations so your required DB objects will be created for you, if needed, when the API starts.
+
+## Debugging
+If you'd like to debug the code, start the services from above using the Docker Compose instructions.
+After all services have started, run `docker compose stop api` to stop the API while keeping Postgres running.
+You can then run the API in your IDE of choice and use it as you would any other API.
