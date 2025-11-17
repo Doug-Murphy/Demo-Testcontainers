@@ -18,8 +18,8 @@ public sealed class PersonControllerTests : IClassFixture<TestcontainersDemoApiF
     public async Task CreatePerson_ReturnsCreated_ForValidCreate() {
         var httpClient = _webApplicationFactory.CreateClient();
         var createPersonRequestFaker = new Faker<CreatePersonRequest>()
-            .RuleFor(person => person.FirstName, faker => faker.Person.FirstName)
-            .RuleFor(person => person.LastName, faker => faker.Person.LastName);
+            .RuleFor(person => person.FirstName, faker => faker.Name.FirstName())
+            .RuleFor(person => person.LastName, faker => faker.Name.LastName());
 
         var fakePerson = createPersonRequestFaker.Generate();
         var response = await httpClient.PostAsJsonAsync("/person", fakePerson);
